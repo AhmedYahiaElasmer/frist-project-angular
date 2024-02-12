@@ -1,0 +1,75 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <form [formGroup]="registerValidation" class="form mt-3 alert alert-dark">
+        <!-- <div class="form-group d-flex text-center mt-2">
+           <label class="w-25 text-center">ID</label>
+           <input formControlName="ID"  class="form-control" type="text">
+          @if (!IDValid) {
+          <div>
+            <p>Name Required</p>
+          </div>
+          }
+        </div> -->
+        <div class="form-group d-flex text-center mt-2">
+          <label class="w-25 text-center">Name</label>
+          <input formControlName="name" class="form-control" type="text" />
+          <!-- <div *ngIf="nameValid.errors && nameValid.touched">
+            @if (nameValid.errors["required"]) {
+            <div>
+              <p>Name Required</p>
+            </div>
+            } @if (nameValid.errors['minlength']) {
+            <div>
+              <p>Name lentgh must be greater than 3</p>
+            </div>
+            }
+          </div> -->
+          @if (nameValid.errors?.["required"]&&nameValid.touched) {
+          <div>
+            <p>Name Required</p>
+          </div>
+          } @if (nameValid.errors?.['minlength']) {
+          <div>
+            <p>Name lentgh must be greater than 3</p>
+          </div>
+          }
+        </div>
+        <div class="form-group d-flex text-center mt-2">
+          <label class="w-25 text-center">Age</label>
+          <input formControlName="age" class="form-control" type="number" />
+          @if (ageValid.errors?.["required"]&& ageValid.touched) {
+          <div>
+            <p>age Required</p>
+          </div>
+          } @if (ageValid.errors?.['min'] || ageValid.errors?.['max']) {
+          <div>
+            <p>age must be greater than 20 and less than 50</p>
+          </div>
+          }
+        </div>
+        <div class="form-group d-flex text-center mt-2">
+          <label class="w-25 text-center">Address</label>
+          <input formControlName="address" class="form-control" type="text" />
+          @if (addressValid.errors?.["required"]&& addressValid.touched) {
+          <div>
+            <p>address Required</p>
+          </div>
+          } @if (addressValid.errors?.['maxlength'] ) {
+          <div>
+            <p>address less than 100</p>
+          </div>
+          }
+        </div>
+        <div class="form-group text-center mt-2">
+          <input
+            (click)="submit()"
+            value="Submit"
+            type="submit"
+            class="btn btn-outline-success"
+          />
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

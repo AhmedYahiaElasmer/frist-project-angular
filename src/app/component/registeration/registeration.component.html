@@ -1,0 +1,24 @@
+<div>
+    <h2>Registeration</h2>
+   name <input type="text" [(ngModel)]="nameValue" >
+   @if( +nameValue.length < 3 && +nameValue.length > 0){
+    <div style="color: red;">
+        <p>name not valid</p>
+    </div>
+
+   }
+  
+ 
+   age <input type="text" [(ngModel)]="ageValue">
+   @if(+ageValue && (+ageValue < 20 || +ageValue > 30)){
+    <div style="color: red;">
+        <p>age not valid</p>
+    </div>
+
+   }
+    <button (click)="add()">add</button>
+  </div>
+
+
+
+

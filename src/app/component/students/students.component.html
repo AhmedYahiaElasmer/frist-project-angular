@@ -1,0 +1,18 @@
+<table>
+    <thead>
+        <th>name</th>
+        <th>age</th>
+    </thead>
+    <tbody>
+         @for(newStudent of DataFromParent ; track newStudent.name){
+            <tr>
+                <td>{{newStudent.name}}</td>
+                <td>{{newStudent.age}}</td>
+            </tr>
+     
+        }
+        
+    </tbody>
+</table>
+
+
